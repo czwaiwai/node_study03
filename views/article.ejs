@@ -1,0 +1,34 @@
+<%- include header %>
+<div class="container">
+  <div class="span twelve">
+    <h3 style="border-bottom:2px solid; "><%= title %></h3>
+  </div>
+  <div class="row">
+    <%- include left %>
+    <div class="span nine">
+      <% if(error){ %><div class="alert danger" > <%= error %></div><% } %>
+      <% if(success){ %><div class="alert success"><%= success %></div><% } %>
+      <div>
+        <h3><%=post.title %></h3>
+
+        <p><%=post.name %> <span style="padding-left:40px;"><%=post.time.minute  %></span></p>
+        <p class="info">阅读：<%= post.pv %> | 评论：<%= post.comments.length %></p>
+        <p>标签：
+         <% if(post.tags){%>
+          <% post.tags.forEach(function(tag,index){ %>
+                <span style="padding-right:10px;"><%= tag %></span>
+          <% }) %>
+         <% }%>
+        </p>
+        <% if(user && user.name==post.name){ %>
+        <p><a href="/edit/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">编辑</a> <a  href="/remove/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">删除</a></p>
+        <% } %>
+        <div><%- post.content %></div>
+      </div>
+      <%- include comment %>
+    </div>
+  </div>
+
+
+</div>
+<%- include footer %>

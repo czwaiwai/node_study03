@@ -1,0 +1,19 @@
+<%- include header %>
+<div class="container">
+  <div class="span twelve">
+    <h3 style="border-bottom:2px solid; "><%= title %></h3>
+  </div>
+  <div class="row">
+    <%- include left %>
+    <div class="span nine">
+      <% if(error){ %><div class="alert danger" > <%= error %></div><% } %>
+      <% if(success){ %><div class="alert success"><%= success %></div><% } %>
+      <ul>
+        <% tags.forEach(function(tag,index){ %>
+        <li><a href="/tags/<%= tag %>"><%=tag %></a></li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+</div>
+<%- include footer %>

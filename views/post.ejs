@@ -1,0 +1,23 @@
+<%- include header %>
+<div class="container">
+  <div class="span twelve">
+    <h3 style="border-bottom:2px solid; "><%= title %></h3>
+  </div>
+  <div class="row">
+    <%- include left %>
+    <div class="span nine">
+      <form action="/post" method="post">
+        <label>文章标题<input type="text" name="title"></label><br />
+        <label>文章内容</label>
+        <textarea name="content" cols="100" rows="10"></textarea>
+        <br />
+        <label>标签：</label>
+        <input type="text" name="tag1">
+        <input type="text" name="tag2">
+        <input type="text" name="tag3"><br />
+        <button>提交</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include footer %>

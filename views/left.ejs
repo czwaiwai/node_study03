@@ -1,0 +1,15 @@
+<div class="span three">
+    <ul class="no-style" style="border-right: 1px solid;">
+        <li><a href="/"  class="<%- title=="主页"?"active":"" %>">主页</a></li>
+        <li><a href="/archive"  class="<%- title=="存档"?"active":"" %>">存档</a></li>
+        <li><a href="/tags"  class="<%- title=="标签"?"active":"" %>">标签</a></li>
+        <% if(user) { %>
+        <li><a href="/post"  class="<%- title=="发表"?"active":"" %>">发表</a></li>
+        <li><a href="/upload"  class="<%- title=="上传"?"active":"" %>">上传图片</a></li>
+        <li><a href="/logout"  class="<%- title=="登出"?"active":"" %>">登出</a></li>
+        <% }else{ %>
+        <li><a href="/login"  class="<%- title=="登录"?"active":"" %>">登录</a></li>
+        <li><a href="/reg"  class="<%- title=="注册"?"active":"" %>">注册</a></li>
+        <% } %>
+    </ul>
+</div>

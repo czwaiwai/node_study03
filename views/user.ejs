@@ -1,0 +1,22 @@
+<%- include header %>
+<div class="container">
+  <div class="span twelve">
+    <h3 style="border-bottom:2px solid; "><%= title %></h3>
+  </div>
+  <div class="row">
+    <%- include left %>
+    <div class="span nine">
+      <% if(error){ %><div class="alert danger" > <%= error %></div><% } %>
+      <% if(success){ %><div class="alert success"><%= success %></div><% } %>
+      <% for(var key in posts){%>
+      <div>
+        <h3><a href="/u/<%=posts[key].name %>/<%=posts[key].time.day %>/<%=posts[key].title %>"><%=posts[key].title %></a></h3>
+        <p><%=posts[key].name %> <span style="padding-left:40px;"><%=posts[key].time.day %></span></p>
+        <div><%- posts[key].content %></div>
+      </div>
+      <% } %>
+      <%- include paging %>
+    </div>
+  </div>
+</div>
+<%- include footer %>

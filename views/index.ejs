@@ -1,0 +1,25 @@
+<%- include header %>
+<div class="container">
+  <div class="span twelve">
+    <h3 style="border-bottom:2px solid; "><%= title %></h3>
+  </div>
+  <div class="row">
+    <%- include left %>
+    <div class="span nine">
+      <% if(error){ %><div class="alert danger" > <%= error %></div><% } %>
+      <% if(success){ %><div class="alert success"><%= success %></div><% } %>
+        <% for(var key in posts){%>
+              <div>
+                <h3><%=posts[key].title %></h3>
+                <p><a href="/u/<%=posts[key].name %>"><%=posts[key].name %></a> <span style="padding-left:40px;"><%=posts[key].time.day %></span></p>
+                <div>阅读量：<%= posts[key].pv%> | 评论数：<%-  posts[key].comments && posts[key].comments.length %></div>
+                <div><%- posts[key].content %></div>
+              </div>
+        <% } %>
+      <%- include paging %>
+    </div>
+  </div>
+
+
+</div>
+<%- include footer %>

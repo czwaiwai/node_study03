@@ -1,0 +1,22 @@
+<%- include header %>
+<div class="container">
+    <div class="span twelve">
+        <h3 style="border-bottom:2px solid; "><%= title %></h3>
+    </div>
+  <div class="row">
+    <%- include left %>
+    <div class="span nine">
+      <form action="/reg" method="post">
+          <% if(error){ %><div class="alert danger" > <%= error %></div><% } %>
+          <% if(success){ %><div class="alert success"><%= success %></div><% } %>
+          <label>用户名：<input name="username"></label><br />
+          <label>密码：<input name="pwd"></label><br />
+          <label>确认密码：<input name="pwd-repeat"></label><br />
+          <label>邮箱：<input name="email"></label><br />
+
+          <button>注册</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include footer %>

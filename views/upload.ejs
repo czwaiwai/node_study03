@@ -1,0 +1,18 @@
+<%- include header %>
+<div class="container">
+  <div class="span twelve">
+    <h3 style="border-bottom:2px solid; "><%= title %></h3>
+  </div>
+  <div class="row">
+    <%- include left %>
+    <div class="span nine">
+      <% if(error){ %><div class="alert danger" > <%= error %></div><% } %>
+      <% if(success){ %><div class="alert success"><%= success %></div><% } %>
+      <form action="/upload" method="post" enctype="multipart/form-data" >
+          <input  name="file1" type="file"  multiple="multiple"><br />
+          <button >上传</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include footer %>

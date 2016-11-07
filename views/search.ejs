@@ -1,0 +1,25 @@
+<%- include header %>
+<div class="container">
+  <div class="span twelve">
+    <h3 style="border-bottom:2px solid; "><%= title %></h3>
+  </div>
+  <div class="row">
+    <%- include left %>
+    <div class="span nine">
+      <% if(error){ %><div class="alert danger" > <%= error %></div><% } %>
+      <% if(success){ %><div class="alert success"><%= success %></div><% } %>
+      <ul>
+      <% posts.forEach(function(post,index){%>
+      <li>
+        <h3><a href="/u/<%=post.name %>/<%=post.time.day %>/<%=post.title %>"><%= post.title %></a></h3>
+        <p><a href="/u/<%=post.name %>"><%=post.name %></a> <span style="padding-left:40px;"><%=post.time.day %></span></p>
+      </li>
+      <% }) %>
+      </ul>
+      <% if(posts.length==0) {%>
+        <h3 style="text-align:center;">未找到你要的查询结果！</h3>
+      <% } %>
+    </div>
+  </div>
+</div>
+<%- include footer %>
